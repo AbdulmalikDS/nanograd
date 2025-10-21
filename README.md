@@ -32,6 +32,9 @@ print(a.grad)  # 3.0
 print(b.grad)  # 2.0
 ```
 
+
+See [`examples/pytorch_comparison.py`](examples/pytorch_comparison.py)
+
 ### Visualize the Computation Graph
 
 Nanograd builds a computation graph and can visualize how gradients flow backward:
@@ -88,18 +91,76 @@ loss.backward()
 
 *A multi-layer perceptron with input layer, hidden layers, and output layer.*
 
-## Examples
+## Comparison with PyTorch
 
-Check the `examples/` folder:
-- `basic_operations.py` - Simple math operations
-- `train_mlp.py` - Training a neural network
-- `neuron_demo.py` - Visualization demo
+<div style="display: flex; gap: 20px;">
+
+<div style="flex: 1;">
+
+### nanograd
+```python
+from engine import Value
+
+x1 = Value(2.0)
+x2 = Value(0.0)
+w1 = Value(-3.0)
+w2 = Value(1.0)
+b = Value(6.8813)
+
+n = x1*w1 + x2*w2 + b
+o = n.tanh()
+o.backward()
+
+print(o.data)   # 0.7071
+print(x2.grad) # 0.5001
+print(w2.grad) # 0.0
+print(x1.grad) # -1.5002
+print(w1.grad) # 1.0001
+```
+
+</div>
+
+<div style="flex: 1;">
+
+### PyTorch
+```python
+import torch
+
+x1 = torch.Tensor([2.0]).double()
+x2 = torch.Tensor([0.0]).double()
+w1 = torch.Tensor([-3.0]).double()
+w2 = torch.Tensor([1.0]).double()
+b = torch.Tensor([6.8813]).double()
+for t in [x1, x2, w1, w2, b]:
+    t.requires_grad = True
+
+n = x1*w1 + x2*w2 + b
+o = torch.tanh(n)
+o.backward()
+
+print(o.item())       # 0.7071
+print(x2.grad.item()) # 0.5001
+print(w2.grad.item()) # 0.0
+print(x1.grad.item()) # -1.5002
+print(w1.grad.item()) # 1.0001
+```
+
+</div>
+
+</div>
 
 ## What's Inside
 
 - `engine.py` - Core `Value` class with autograd
 - `nn.py` - Neural network components (Neuron, Layer, MLP)
 - `utils/` - Visualization utilities
+
+## Examples
+
+Check the `examples/` folder:
+- `basic_operations.py` - Simple math operations
+- `train_mlp.py` - Training a neural network
+- `neuron_demo.py` - Visualization demo
 
 ## Acknowledgments
 

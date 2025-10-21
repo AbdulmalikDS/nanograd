@@ -1,0 +1,15 @@
+__pycache__/
+downloads/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+*.pdf
+computation_graph*
+activation_functions*
+
+.ipynb_checkpoints/
+*.ipynb

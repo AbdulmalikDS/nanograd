@@ -4,8 +4,6 @@
   <img src="assets/Will-o'-the-wisp.webp" alt="nanograd"  height="400" width="1200"/>
 </div>
 
-> A tiny scalar-valued autograd engine with a neural networks library built on top, featuring a PyTorch-like API.
-
 A minimal implementation of backpropagation (reverse-mode autodiff) over a dynamically built computational graph. Perfect for understanding how modern frameworks like PyTorch work under the hood.
 
 ## Installation

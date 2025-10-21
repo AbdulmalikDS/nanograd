@@ -107,7 +107,7 @@ n = x1*w1 + x2*w2 + b
 o = n.tanh()
 o.backward()
 
-print(o.data)   # 0.7071
+print(o.data)  # 0.7071
 print(x2.grad) # 0.5001
 print(w2.grad) # 0.0
 print(x1.grad) # -1.5002

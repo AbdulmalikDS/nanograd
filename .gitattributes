@@ -1,0 +1,6 @@
+# Set Python as the main language
+*.py linguist-language=Python
+*.ipynb linguist-language=Python
+
+# Make notebooks not count towards language stats
+*.ipynb linguist-documentation

@@ -31,10 +31,6 @@ c.backward()
 print(a.grad)  # 3.0
 print(b.grad)  # 2.0
 ```
-
-
-See [`examples/pytorch_comparison.py`](examples/pytorch_comparison.py)
-
 ### Visualize the Computation Graph
 
 Nanograd builds a computation graph and can visualize how gradients flow backward:
@@ -111,7 +107,7 @@ n = x1*w1 + x2*w2 + b
 o = n.tanh()
 o.backward()
 
-print(o.data)   # 0.7071
+print(o.data)  # 0.7071
 print(x2.grad) # 0.5001
 print(w2.grad) # 0.0
 print(x1.grad) # -1.5002
@@ -148,6 +144,8 @@ print(w1.grad.item()) # 1.0001
 </div>
 
 </div>
+
+See [`examples/pytorch_comparison.py`](examples/pytorch_comparison.py)
 
 ## What's Inside
 

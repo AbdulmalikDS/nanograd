@@ -11,5 +11,3 @@ downloads/
 computation_graph*
 activation_functions*
 
-.ipynb_checkpoints/
-*.ipynb

@@ -78,6 +78,26 @@ class Value:
 
     return out
 
+  def log(self):
+    x = self.data
+    out = Value(math.log(x), (self,), 'log')
+
+    def _backward():
+      self.grad += (1.0 / x) * out.grad
+    out._backward = _backward
+
+    return out
+
+  def abs(self):
+    x = self.data
+    out = Value(abs(x), (self,), 'abs')
+
+    def _backward():
+      self.grad += (1.0 if x > 0 else -1.0) * out.grad
+    out._backward = _backward
+
+    return out
+
   def relu(self):
     out = Value(max(0, self.data), (self,), 'ReLU')
 
@@ -94,6 +114,16 @@ class Value:
 
     def _backward():
       self.grad += (s * (1 - s)) * out.grad
+    out._backward = _backward
+
+    return out
+
+  def leaky_relu(self, alpha=0.01):
+    x = self.data
+    out = Value(x if x > 0 else alpha * x, (self,), 'LeakyReLU')
+
+    def _backward():
+      self.grad += (1.0 if x > 0 else alpha) * out.grad
     out._backward = _backward
 
     return out

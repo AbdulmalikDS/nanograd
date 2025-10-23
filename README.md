@@ -151,6 +151,8 @@ See [`examples/pytorch_comparison.py`](examples/pytorch_comparison.py)
 
 - `engine.py` - Core `Value` class with autograd
 - `nn.py` - Neural network components (Neuron, Layer, MLP)
+- `loss.py` - Loss functions (MSE, MAE, Binary Cross-Entropy)
+- `optim.py` - Optimizers (SGD, Adam, RMSprop)
 - `utils/` - Visualization utilities
 
 ## Examples
@@ -159,6 +161,8 @@ Check the `examples/` folder:
 - `basic_operations.py` - Simple math operations
 - `train_mlp.py` - Training a neural network
 - `neuron_demo.py` - Visualization demo
+- `optimizers_demo.py` - Compare different optimizers
+- `loss_demo.py` - Loss functions examples
 
 ## Acknowledgments
 

@@ -160,9 +160,9 @@ See [`examples/pytorch_comparison.py`](examples/pytorch_comparison.py)
 Check the `examples/` folder:
 - `basic_operations.py` - Simple math operations
 - `train_mlp.py` - Training a neural network
-- `neuron_demo.py` - Visualization demo
-- `optimizers_demo.py` - Compare different optimizers
-- `loss_demo.py` - Loss functions examples
+- `neuron.py` - Visualization demo
+- `optimizers.py` - Compare different optimizers
+- `loss.py` - Loss functions examples
 
 ## Acknowledgments
 
